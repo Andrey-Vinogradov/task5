@@ -16,8 +16,9 @@ namespace MusicStore
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
                 .Build();
 
+            var rootPath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
             var builder = new WebHostBuilder()
-                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseContentRoot(rootPath)
                 .UseConfiguration(config)
                 .UseIISIntegration()
                 .UseStartup("MusicStore")
